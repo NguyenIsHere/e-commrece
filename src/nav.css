@@ -1,0 +1,156 @@
+:root {
+  --purple: #654A83;
+  --light_purple: #805B93;
+  --pink: #E74383;
+  --light_pink: #D97996;
+  --darker_white: #FFFAE2;
+  --skin: #F7C0B6;
+  --lighter_skin: #F7C8BD;
+  --primary: rgba(24, 27, 52);
+  --sub_primary: rgba(97, 97, 255);
+  --dark_primary: rgba(81, 81, 213);
+  --secondary: rgba(126, 114, 152);
+  --light_bg: rgb(236, 239, 248);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.free {
+  padding: 10px 30px;
+  width: 100%;
+  background: var(--primary);
+  display: flex;
+}
+
+.free .icon {
+  color: #fff;
+  font-size: 32px;
+}
+
+.free p {
+  margin-left: 10px;
+  color: #f6f7f9;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.main_header {
+  padding: 30px 20px;
+  width: 100%;
+  background-color: var(--light_bg);
+  border-bottom: 1px solid var(--primary);
+}
+
+.main_header .container {
+  display: flex;
+  align-items: center;
+}
+
+.main_header .container .nav ul {
+  display: flex;
+}
+
+.main_header .container .nav ul li {
+  margin-left: 50px;
+  list-style: none;
+}
+
+.main_header .container .nav ul li .link {
+  text-decoration: none;
+  color: var(--primary);
+  transition: 0.5s;
+}
+
+.main_header .container .nav ul li .link:hover {
+  color: var(--dark_primary);
+}
+
+.main_header .container .right_section {
+  display: flex;
+  margin-left: auto;
+}
+
+.main_header .container .search_box {
+  order: 1;
+}
+
+.main_header .container .search_box input {
+  outline: none;
+  padding: 10px 30px;
+  border: 3px solid var(--primary);
+  width: 300px;
+  color: var(--primary);
+}
+
+.main_header .container .search_box button {
+  border: 3px solid var(--primary);
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+
+  background: var(--primary);
+  color: #ecf2f7;
+}
+
+.main_header .container .logo {
+  width: 65px;
+  padding: 10px 20px;
+  display: none;
+}
+
+.main_header .container .icon {
+  display: flex;
+  margin-right: 50px;
+  margin-left: 50px;
+  align-items: center;
+  order: 2;
+}
+
+.main_header .container .icon .account {
+  display: flex;
+  margin-right: 30px;
+}
+
+.main_header .container .icon .account .user_icon {
+  margin-right: 10px;
+  font-size: 22px;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.main_header .container .icon .account p {
+  margin-right: 5px;
+  margin-top: 3px;
+}
+
+.main_header .container .icon .second_icon {
+  display: flex;
+}
+
+.main_header .container .icon .second_icon .link {
+  margin-right: 5px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.main_header .container .auth {
+  margin-left: 100px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.main_header .container .auth button {
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--primary);
+  outline: none;
+  border: none;
+  background: none;
+}

@@ -1,0 +1,122 @@
+:root {
+  --purple: #654A83;
+  --light_purple: #805B93;
+  --pink: #E74383;
+  --light_pink: #D97996;
+  --darker_white: #FFFAE2;
+  --skin: #F7C0B6;
+  --lighter_skin: #F7C8BD;
+  --primary: rgba(24, 27, 52);
+  --sub_primary: rgba(97, 97, 255);
+  --dark_primary: rgba(81, 81, 213);
+  --secondary: rgba(126, 114, 152);
+  --light_bg: rgb(236, 239, 248);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.footer {
+  padding: 30px 40px;
+  width: 100%;
+  background: var(--light_bg);
+}
+
+.footer .container {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .container .about {
+  max-width: 30%;
+}
+
+.footer .container .about .detail p {
+  margin-top: 20px;
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.footer .container .about .detail .icon {
+  margin-top: 20px;
+  display: flex;
+}
+
+.footer .container .about .detail .icon li {
+  margin-left: 20px;
+  list-style: none;
+  padding: 20px 20px;
+  color: var(--darker_white);
+  background: var(--primary);
+  box-shadow: 0px 0px 30px -5px #859178;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.footer .container .about .detail .icon li:hover {
+  background: var(--dark_primary);
+  transform: translateY(5px);
+  color: white;
+}
+
+.footer .container .account {
+  padding: 40px 40px;
+  color: white;
+  background: var(--primary);
+  box-shadow: 0px 0px 30px -5px #859178;
+  border-radius: 16px;
+}
+
+.footer .container .account h3 {
+  font-size: 32px;
+}
+
+.footer .container .account ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.footer .container .account ul li {
+  margin-top: 5px;
+  font-size: 14px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.footer .container .account ul li:hover {
+  color: var(--dark_primary);
+}
+
+.footer .container .page {
+  padding: 40px 40px;
+  color: white;
+  background: var(--primary);
+  box-shadow: 0px 0px 30px -5px #859178;
+  border-radius: 16px;
+}
+
+.footer .container .page h3 {
+  font-size: 32px;
+}
+
+.footer .container .page ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.footer .container .page ul li {
+  margin-top: 5px;
+  font-size: 14px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.footer .container .page ul li:hover {
+  color: var(--dark_primary);
+}

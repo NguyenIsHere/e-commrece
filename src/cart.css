@@ -1,0 +1,199 @@
+:root {
+  --purple: #654A83;
+  --light_purple: #805B93;
+  --pink: #E74383;
+  --light_pink: #D97996;
+  --darker_white: #FFFAE2;
+  --skin: #F7C0B6;
+  --lighter_skin: #F7C8BD;
+  --primary: rgba(24, 27, 52);
+  --sub_primary: rgba(97, 97, 255);
+  --dark_primary: rgba(81, 81, 213);
+  --secondary: rgba(126, 114, 152);
+  --light_bg: rgb(236, 239, 248);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light_bg);
+}
+
+.cart_container {
+  padding: 40px 50px;
+  width: 100%;
+  background-color: var(--light_bg);
+  border-bottom: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cart_container .emptycart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.cart_container .emptycart h2 {
+  font-size: 32px;
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.cart_container .emptycart .emptycart_btn {
+  font-size: 18px;
+  width: 40%;
+  display: flex;
+  padding: 0.8em 1.2em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  text-decoration: none;
+  color: white;
+  background: var(--primary);
+  transition: 0.5s;
+}
+
+.cart_container .emptycart .emptycart_btn:hover {
+  background: var(--dark_primary);
+}
+
+.cart_container .contant {
+  max-width: 100%;
+  padding: 30px 30px;
+}
+
+.cart_container .contant .cart_item {
+  padding: 30px 30px;
+  box-shadow: 0px 8px 24px 0 rgba(29, 140, 242, 0.16);
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.cart_container .contant .cart_item .img_box img {
+  width: 25vw;
+  border-radius: 10px;
+}
+
+.cart_container .contant .cart_item .detail {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px;
+  margin-left: 20px;
+}
+
+.cart_container .contant .cart_item .detail h4 {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  color: var(--primary);
+}
+
+.cart_container .contant .cart_item .detail h3 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 32px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.cart_container .contant .cart_item .detail p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: var(--primary);
+}
+
+.cart_container .contant .cart_item .detail .info .qty {
+  margin-top: 20px;
+  display: flex;
+}
+
+.cart_container .contant .cart_item .detail .info .qty input {
+  font-size: 18px;
+  border: 1px solid var(--primary);
+  text-align: center;
+  width: 20%;
+  padding: 0.4em 0.8em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--primary);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.cart_container .contant .cart_item .detail .info .qty button {
+  font-size: 18px;
+  border: none;
+  width: 10%;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
+
+.cart_container .contant .cart_item .detail .info .qty button:hover {
+  background: var(--dark_primary);
+}
+
+.cart_container .contant .cart_item .detail .close {
+  margin-left: 300px;
+  display: flex;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  text-decoration: none;
+  background: white;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.cart_container .contant .cart_item .detail .info .subtotal {
+  font-weight: 300;
+  font-size: 24px;
+  color: var(--primary);
+}
+
+.cart_container .totalprice {
+  font-size: 32px;
+  margin-top: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.cart_container .checkout {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 0.8em 1.2em;
+  font-size: 18px;
+  border: none;
+  width: 10%;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
