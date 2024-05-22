@@ -53,7 +53,7 @@ const Cart = ({ cart, setCart }) => {
   }
   // total price
   const totalprice = cart.reduce(
-    (price, item) => price + item.Price * item.qty,
+    (price, item) => price + item.price * item.qty,
     0
   )
 
@@ -73,13 +73,13 @@ const Cart = ({ cart, setCart }) => {
             return (
               <div className='cart_item' key={curElm.id}>
                 <div className='img_box'>
-                  <img src={curElm.Img} alt={curElm.Title}></img>
+                  <img src={curElm.image} alt={curElm.title}></img>
                 </div>
                 <div className='detail'>
                   <div className='info'>
-                    <h4>{curElm.Cat}</h4>
-                    <h3>{curElm.Title}</h3>
-                    <p>Price: ${curElm.Price}</p>
+                    <h4>{curElm.category}</h4>
+                    <h3>{curElm.title}</h3>
+                    <p>Price: ${curElm.price}</p>
                     <div className='qty'>
                       <button className='incqty' onClick={() => incqty(curElm)}>
                         +
@@ -90,7 +90,7 @@ const Cart = ({ cart, setCart }) => {
                       </button>
                     </div>
                     <h4 className='subtotal'>
-                      sub total: ${curElm.Price * curElm.qty}
+                      sub total: ${curElm.price * curElm.qty}
                     </h4>
                   </div>
                   <button
