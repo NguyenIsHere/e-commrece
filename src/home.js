@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { IoIosArrowDropright } from 'react-icons/io'
 import { TbTruck } from 'react-icons/tb'
@@ -9,14 +9,15 @@ import { TbHeadphones } from 'react-icons/tb'
 import { TbShoppingCart } from 'react-icons/tb'
 import { TbEye } from 'react-icons/tb'
 import { TbHeartPlus } from 'react-icons/tb'
-import Homeproduct from './homeproduct'
-import { useAuth0 } from '@auth0/auth0-react'
 import { CgCloseO } from 'react-icons/cg'
 import './home.css'
 import Productdetail from './productdetail'
+import { useAuth } from './useAuth'
+import ProductCard from './ProductCard'
 
 const Home = ({ detail, view, close, setClose, addtocart }) => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0()
+  const { user, loading, login, logout } = useAuth()
+  const isAuthenticated = !!user
   return (
     <>
       <div className='top_banner'>
@@ -66,10 +67,7 @@ const Home = ({ detail, view, close, setClose, addtocart }) => {
                         Add To Cart
                       </button>
                     ) : (
-                      <button
-                        className='addbtn'
-                        onClick={() => loginWithRedirect()}
-                      >
+                      <button className='addbtn' onClick={() => login()}>
                         Add To Cart
                       </button>
                     )}
@@ -163,37 +161,14 @@ const Home = ({ detail, view, close, setClose, addtocart }) => {
       <div className='product'>
         <h2>Top Products</h2>
         <div className='container'>
-          {Productdetail.map(curElm => {
-            return (
-              <div className='box' key={curElm.id}>
-                <div className='img_box'>
-                  <img src={curElm.image} alt={curElm.title}></img>
-                  <div className='icon'>
-                    {isAuthenticated ? (
-                      <li onClick={() => addtocart(curElm)}>
-                        <TbShoppingCart />
-                      </li>
-                    ) : (
-                      <li onClick={() => loginWithRedirect()}>
-                        <TbShoppingCart />
-                      </li>
-                    )}
-                    <li onClick={() => view(curElm)}>
-                      <TbEye />
-                    </li>
-                    <li>
-                      <TbHeartPlus />
-                    </li>
-                  </div>
-                </div>
-                <div className='detail'>
-                  <p>{curElm.category}</p>
-                  <h3>{curElm.title}</h3>
-                  <h4>${curElm.price}</h4>
-                </div>
-              </div>
-            )
-          })}
+          {Productdetail.map(curElm => (
+            <ProductCard
+              key={curElm.id}
+              product={curElm}
+              addtocart={addtocart}
+              view={view}
+            />
+          ))}
         </div>
       </div>
       <div className='banner'>

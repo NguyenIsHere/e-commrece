@@ -2,8 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { CgCloseO } from 'react-icons/cg'
 import './cart.css'
+import { getAuth, signOut } from 'firebase/auth'
 
 const Cart = ({ cart, setCart }) => {
+  const auth = getAuth()
+  const user = auth.currentUser
+  const isAuthenticated = !!user
+
+  const logout = async () => {
+    try {
+      await signOut(auth)
+    } catch (error) {
+      console.error('Error signing out: ', error)
+    }
+  }
+
   // increase qty
   const incqty = product => {
     const exist = cart.find(x => {
@@ -53,14 +66,14 @@ const Cart = ({ cart, setCart }) => {
   }
   // total price
   const totalprice = cart.reduce(
-    (price, item) => price + item.Price * item.qty,
+    (price, item) => price + item.price * item.qty,
     0
   )
 
   return (
     <>
       <div className='cart_container'>
-        {cart.length === 0 && (
+        {(cart.length === 0 || !isAuthenticated) && (
           <div className='emptycart'>
             <h2 className='empty'>Your Cart is Empty</h2>
             <Link to='/product' className='emptycart_btn'>
@@ -73,13 +86,13 @@ const Cart = ({ cart, setCart }) => {
             return (
               <div className='cart_item' key={curElm.id}>
                 <div className='img_box'>
-                  <img src={curElm.Img} alt={curElm.Title}></img>
+                  <img src={curElm.image} alt={curElm.title}></img>
                 </div>
                 <div className='detail'>
                   <div className='info'>
-                    <h4>{curElm.Cat}</h4>
-                    <h3>{curElm.Title}</h3>
-                    <p>Price: ${curElm.Price}</p>
+                    <h4>{curElm.category}</h4>
+                    <h3>{curElm.title}</h3>
+                    <p>Price: ${curElm.price}</p>
                     <div className='qty'>
                       <button className='incqty' onClick={() => incqty(curElm)}>
                         +
@@ -90,7 +103,7 @@ const Cart = ({ cart, setCart }) => {
                       </button>
                     </div>
                     <h4 className='subtotal'>
-                      sub total: ${curElm.Price * curElm.qty}
+                      sub total: ${curElm.price * curElm.qty}
                     </h4>
                   </div>
                   <button

@@ -5,8 +5,9 @@ import { TbEye } from 'react-icons/tb'
 import { TbHeartPlus } from 'react-icons/tb'
 import { TbLogin } from 'react-icons/tb'
 import { CgCloseO } from 'react-icons/cg'
-import { useAuth0 } from '@auth0/auth0-react'
 import './product.css'
+import { useAuth } from './useAuth'
+import ProductCard from './ProductCard'
 
 const Product = ({
   product,
@@ -17,7 +18,8 @@ const Product = ({
   setClose,
   addtocart
 }) => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0()
+  const { user, loading, login, logout } = useAuth()
+  const isAuthenticated = !!user
   const filterproduct = product => {
     const update = Productdetail.filter(x => {
       return x.category === product
@@ -35,41 +37,14 @@ const Product = ({
             <button className='closebtn' onClick={() => setClose(false)}>
               <CgCloseO />
             </button>
-            {detail.map(curElm => {
-              return (
-                <div className='product_box'>
-                  <div className='img_box'>
-                    <img src={curElm.image} alt={curElm.title}></img>
-                  </div>
-                  <div className='detail'>
-                    <h4>{curElm.category}</h4>
-                    <h2>{curElm.title}</h2>
-                    <p>
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      In nihil, cum at maiores numquam sequi architecto officiis
-                      aliquam excepturi molestiae assumenda maxime quibusdam
-                      amet delectus nam sunt voluptas quo molestias.
-                    </p>
-                    <h3>${curElm.price}</h3>
-                    {isAuthenticated ? (
-                      <button
-                        className='addbtn'
-                        onClick={() => addtocart(curElm)}
-                      >
-                        Add To Cart
-                      </button>
-                    ) : (
-                      <button
-                        className='addbtn'
-                        onClick={() => loginWithRedirect()}
-                      >
-                        Add To Cart
-                      </button>
-                    )}
-                  </div>
-                </div>
-              )
-            })}
+            {detail.map(curElm => (
+              <ProductCard
+                key={curElm.id}
+                product={curElm}
+                addtocart={addtocart}
+                view={view}
+              />
+            ))}
 
             <div className='productbox'></div>
           </div>
@@ -112,7 +87,7 @@ const Product = ({
                               <TbShoppingCart />
                             </li>
                           ) : (
-                            <li onClick={() => loginWithRedirect()}>
+                            <li onClick={() => login()}>
                               <TbShoppingCart />
                             </li>
                           )}
