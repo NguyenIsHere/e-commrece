@@ -2,8 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { CgCloseO } from 'react-icons/cg'
 import './cart.css'
+import { getAuth, signOut } from 'firebase/auth'
 
 const Cart = ({ cart, setCart }) => {
+  const auth = getAuth()
+  const user = auth.currentUser
+  const isAuthenticated = !!user
+
+  const logout = async () => {
+    try {
+      await signOut(auth)
+    } catch (error) {
+      console.error('Error signing out: ', error)
+    }
+  }
+
   // increase qty
   const incqty = product => {
     const exist = cart.find(x => {
@@ -60,7 +73,7 @@ const Cart = ({ cart, setCart }) => {
   return (
     <>
       <div className='cart_container'>
-        {cart.length === 0 && (
+        {(cart.length === 0 || !isAuthenticated) && (
           <div className='emptycart'>
             <h2 className='empty'>Your Cart is Empty</h2>
             <Link to='/product' className='emptycart_btn'>
